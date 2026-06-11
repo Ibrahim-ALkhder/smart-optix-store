@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body,
+body.dark-mode {
+  background-color: #0B0B0C;
+  color: #E8E8E9;
+}
+
+[dir="rtl"] body,
+[dir="rtl"] * {
+  font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+/* Dark mode overrides */
+.dark .bg-white\/70,
+.dark .bg-white\/80,
+.dark .bg-white\/50,
+.dark .bg-white\/60,
+.dark .bg-white\/90,
+.dark .bg-white\/80\/80 {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .bg-gray-50\/50,
+.dark .bg-gray-50\/80,
+.dark .bg-gray-50 {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.dark .border-white\/20,
+.dark .border-white\/10,
+.dark .border-white\/30,
+.dark .border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .text-gray-900,
+.dark .text-gray-800 {
+  color: #E8E8E9;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-500,
+.dark .text-gray-400 {
+  color: #9CA3AF;
+}
+
+.dark .bg-gradient-to-b.from-gray-50\/50.to-white {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.03), #0B0B0C);
+}
+
+.dark .bg-gradient-to-br.from-primary-50\/50 {
+  background: linear-gradient(to bottom right, rgba(212,175,55,0.05), #0B0B0C);
+}
+
+.dark .bg-gradient-to-b.from-primary-50\/50.via-white.to-white {
+  background: linear-gradient(to bottom, rgba(212,175,55,0.05), #0B0B0C, #0B0B0C);
+}
+
+.dark .hover\:bg-gray-100\/80:hover,
+.dark .hover\:bg-gray-100:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .hover\:bg-gray-50\/80:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Line clamp utility */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Animation utilities */
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-xl border border-white/20;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-strong {
+    @apply backdrop-blur-2xl border border-white/30;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl rounded-2xl border border-white/10;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #D4AF37, #E6B83A, #D4AF37);
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #D4AF37, #F3DF95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .dark-glass {
+    @apply backdrop-blur-xl rounded-2xl border border-white/10;
+    background: rgba(11, 11, 12, 0.8);
+  }
+}
+
+/* Toast overrides for dark mode */
+.dark .Toastify__toast-container .Toastify__toast {
+  background: #1a1a1e;
+  color: #E8E8E9;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
